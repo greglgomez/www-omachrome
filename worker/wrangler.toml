@@ -4,9 +4,16 @@ compatibility_date = "2024-09-23"
 workers_dev = false
 preview_urls = false
 
+routes = [
+  { pattern = "api.omachrome.com", custom_domain = true }
+]
+
 [vars]
 # Origin allowed to call this worker — update if you add more clients
 ALLOWED_ORIGIN = "https://omachrome.com"
 
-# Set the API key as a secret (never commit it):
+# Secrets (set with `wrangler secret put`, never commit values):
 #   wrangler secret put LOOPS_API_KEY
+#   wrangler secret put DEVICECHECK_KEY
+#   wrangler secret put DEVICECHECK_KEY_ID
+#   wrangler secret put APPLE_TEAM_ID
