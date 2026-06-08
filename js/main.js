@@ -80,7 +80,7 @@ function initNewsletterForm() {
             const res = await fetch(NEWSLETTER_WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, source: 'website-newsletter', campaign: 'launch-promo' }),
+                body: JSON.stringify({ email, source: 'website-newsletter' }),
             })
 
             if (res.ok || res.status === 409) {
