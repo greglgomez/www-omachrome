@@ -3,9 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Store color recipes on your phone and upload them to your OM-3. No computer needed.">
+    <meta name="description" content="Save and upload colour recipes to your OM System OM-3 straight from your iPhone. Import from any JPEG, manage your library, and beam recipes to your camera via USB-C. No computer needed.">
     <meta name="theme-color" content="#07070f">
-    <title>omachrome | iOS Color Recipe Management</title>
+    <title>omachrome | Upload OM-3 Colour Recipes from iPhone</title>
+    <link rel="canonical" href="https://omachrome.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omachrome.com/">
+    <meta property="og:title" content="omachrome | Upload OM-3 Colour Recipes from iPhone">
+    <meta property="og:description" content="Save and upload colour recipes to your OM System OM-3 straight from your iPhone. Import from any JPEG, manage your library, and beam recipes via USB-C. No computer needed.">
+    <meta property="og:image" content="https://omachrome.com/img/omachrome-social.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="omachrome | Upload OM-3 Colour Recipes from iPhone">
+    <meta name="twitter:description" content="Save and upload colour recipes to your OM System OM-3 straight from your iPhone. No computer needed.">
+    <meta name="twitter:image" content="https://omachrome.com/img/omachrome-social.png">
+
+    <!-- Structured data: app -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "omachrome",
+      "operatingSystem": "iOS",
+      "applicationCategory": "PhotographyApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Save and upload colour recipes to your OM System OM-3 straight from your iPhone. Import from any JPEG, manage your library, and upload via USB-C. No computer needed.",
+      "url": "https://omachrome.com",
+      "downloadUrl": "https://apps.apple.com/us/app/omachrome/id6770233646"
+    }
+    </script>
+
+    <!-- Structured data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I get a colour recipe into omachrome?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Find a recipe on om-recipes.com. Most listings include a sample JPEG shot with that recipe. Save the JPEG to your iPhone, open omachrome, and import the photo. The app reads the colour recipe embedded in the JPEG's EXIF data and saves it to your library, ready to upload whenever you want."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I upload a recipe to my OM System OM-3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Connect your iPhone to your OM-3 using a USB-C data cable (not a charge-only cable). Open omachrome, tap the recipe you want, and hit Upload. The recipe transfers directly to your camera. No Wi-Fi or computer required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What USB-C cable do I need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any USB-C data cable works. Charge-only cables won't work, so make sure yours supports data transfer. Most cables that came with a Mac or iPad will do the job."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an OM-3 colour recipe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A colour recipe is a set of in-camera processing settings (colour saturation, tone curve, contrast, and sharpness) that controls how your OM System OM-3 renders JPEG images. Most recipes also include white balance bias, though due to a camera limitation this cannot currently be imported. Recipes let you get a consistent, film-like look straight out of camera without any post-processing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is omachrome free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, omachrome is free to download. There's an optional Pro unlock (in-app purchase) that adds iCloud sync across your devices and lets you choose any custom mode slot and colour profile slot when uploading recipes to your camera."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does omachrome work over Wi-Fi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, recipe uploads work over USB-C only. Connect your iPhone to your OM-3 with a data cable and omachrome handles the transfer directly. No Wi-Fi or internet connection is needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I find OM-3 colour recipes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "om-recipes.com is the main community hub for OM System colour recipes. Most listings include a sample JPEG you can save to your iPhone and import directly into omachrome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What cameras does omachrome work with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "omachrome currently supports the OM System OM-3 only. If you'd like to see support for other OM System cameras, you can submit a request via the feedback portal at omachrome.featurebase.app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can omachrome brick my camera?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very unlikely. omachrome is designed to work safely with supported cameras and we've done extensive testing. That said, use the app at your own risk. We're not responsible for any camera issues, changed settings, or data loss. Make sure your camera is fully charged and your cable is securely connected before uploading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I create my own colour recipes from scratch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not yet. omachrome currently imports recipes from existing OM-3 JPEGs. The best place to find recipes is om-recipes.com, where photographers share their colour recipes with sample JPEGs you can import directly into the app."
+          }
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -52,7 +176,7 @@
                     </h1>
 
                     <p class="hero-subtitle">
-                        The simplest way to manage OM-3 color recipes without a computer. <br/>Import, store, and upload, all from your iPhone.
+                        The simplest way to manage OM System OM-3 colour recipes without a computer. Import, store, and upload, all from your iPhone.
                     </p>
 
                     <div class="hero-cta">
@@ -71,10 +195,10 @@
                 <div class="hero-visual">
                     <div class="phones-showcase">
                         <div class="phone phone-back">
-                            <img src="/img/app-screenshots/app-recipe-add-colour-wheel.jpeg" alt="Color wheel editor">
+                            <img src="/img/app-screenshots/app-recipe-add-colour-wheel.jpeg" alt="omachrome colour wheel editor showing OM-3 recipe parameters">
                         </div>
                         <div class="phone phone-front">
-                            <img src="/img/app-screenshots/app-home-with-recipes.jpeg" alt="Recipe library">
+                            <img src="/img/app-screenshots/app-home-with-recipes.jpeg" alt="omachrome recipe library with saved OM System OM-3 colour recipes">
                         </div>
                         <div class="phones-glow"></div>
                     </div>
@@ -108,7 +232,7 @@
                         </button>
                     </div>
                     <p class="newsletter-validation" id="newsletter-validation" hidden></p>
-                    <p class="newsletter-fine-print">No spam — just app updates. Unsubscribe anytime.</p>
+                    <p class="newsletter-fine-print">No spam, just app updates. Unsubscribe anytime.</p>
                 </form>
                 <div class="newsletter-feedback newsletter-success" id="newsletter-success" hidden>
                     <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -128,13 +252,13 @@
                 <div class="feature-row">
                     <div class="feature-visual">
                         <div class="feature-phone">
-                            <img src="/img/app-screenshots/onboarding_01-save-looks.jpeg" alt="Saving color looks">
+                            <img src="/img/app-screenshots/onboarding_01-save-looks.jpeg" alt="Importing an OM-3 colour recipe from a JPEG in omachrome">
                         </div>
                     </div>
                     <div class="feature-text">
                         <span class="feature-label">Import</span>
                         <h3>Scan recipes straight from OM-3 JPEGs</h3>
-                        <p>Import any OM-3 JPEG that uses a colour recipe and omachrome reads the embedded color recipe and stores it in the app.</p>
+                        <p>Import any OM System OM-3 JPEG that uses a colour recipe and omachrome reads the embedded colour recipe and stores it in the app.</p>
                     </div>
                 </div>
 
@@ -142,7 +266,7 @@
                 <div class="feature-row feature-row--reverse">
                     <div class="feature-visual">
                         <div class="feature-phone">
-                            <img src="/img/app-screenshots/app-recipe-add-colour-wheel.jpeg" alt="Precise color controls">
+                            <img src="/img/app-screenshots/app-recipe-add-colour-wheel.jpeg" alt="OM-3 colour recipe details in omachrome showing tone curve and colour bias">
                         </div>
                     </div>
                     <div class="feature-text">
@@ -156,13 +280,13 @@
                 <div class="feature-row">
                     <div class="feature-visual">
                         <div class="feature-phone">
-                            <img src="/img/app-screenshots/onboarding_02-upload.jpeg" alt="Uploading to camera">
+                            <img src="/img/app-screenshots/onboarding_02-upload.jpeg" alt="Uploading a colour recipe to an OM System OM-3 via USB-C using omachrome">
                         </div>
                     </div>
                     <div class="feature-text">
                         <span class="feature-label">Upload</span>
                         <h3>Push recipes to your camera in seconds</h3>
-                        <p>Plug in a USB-C cable and beam your recipes directly to your OM-3. No Wi-Fi, no computer. Just your phone and your camera.</p>
+                        <p>Plug in a USB-C cable and beam your recipes directly to your OM System OM-3. No Wi-Fi, no computer. Just your phone and your camera.</p>
                     </div>
                 </div>
 
@@ -192,6 +316,58 @@
                         </div>
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="faq-inner">
+                <div class="faq-header">
+                    <h2>Frequently asked questions</h2>
+                    <p>Everything you need to know about omachrome and OM-3 colour recipes.</p>
+                </div>
+                <dl class="faq-list">
+                    <div class="faq-item">
+                        <dt>How do I get a colour recipe into omachrome?</dt>
+                        <dd>Find a recipe on <a href="https://om-recipes.com" target="_blank" rel="noopener noreferrer">om-recipes.com</a>. Most listings include a sample JPEG shot with that recipe. Save the JPEG to your iPhone, open omachrome, and import the photo. The app reads the colour recipe embedded in the JPEG's EXIF data and saves it to your library, ready to upload whenever you want.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>How do I upload a recipe to my OM System OM-3?</dt>
+                        <dd>Connect your iPhone to your OM-3 using a USB-C data cable (not a charge-only cable). Open omachrome, tap the recipe you want, and hit Upload. The recipe transfers directly to your camera. No Wi-Fi or computer required.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>What USB-C cable do I need?</dt>
+                        <dd>Any USB-C data cable works. Charge-only cables won't work, so make sure yours supports data transfer. Most cables that came with a Mac or iPad will do the job.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>What is an OM-3 colour recipe?</dt>
+                        <dd>A colour recipe is a set of in-camera processing settings (colour saturation, tone curve, contrast, and sharpness) that controls how your OM System OM-3 renders JPEG images. Most recipes also include white balance bias, though due to a camera limitation this cannot currently be imported. Recipes let you get a consistent, film-like look straight out of camera without any post-processing.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>Is omachrome free?</dt>
+                        <dd>Yes, omachrome is free to download. There's an optional Pro unlock (in-app purchase) that adds iCloud sync across your devices and lets you choose any custom mode slot and colour profile slot when uploading recipes to your camera.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>Does omachrome work over Wi-Fi?</dt>
+                        <dd>No, recipe uploads work over USB-C only. Connect your iPhone to your OM-3 with a data cable and omachrome handles the transfer directly. No Wi-Fi or internet connection is needed.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>Where can I find OM-3 colour recipes?</dt>
+                        <dd><a href="https://om-recipes.com" target="_blank" rel="noopener noreferrer">om-recipes.com</a> is the main community hub for OM System colour recipes. Most listings include a sample JPEG you can save to your iPhone and import directly into omachrome.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>What cameras does omachrome work with?</dt>
+                        <dd>omachrome currently supports the OM System OM-3 only. If you'd like to see support for other OM System cameras, you can <a href="https://omachrome.featurebase.app" target="_blank" rel="noopener noreferrer">submit a request via our feedback portal</a>.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>Can omachrome brick my camera?</dt>
+                        <dd>Very unlikely. omachrome is designed to work safely with supported cameras and we've done extensive testing. That said, use the app at your own risk. We're not responsible for any camera issues, changed settings, or data loss. Make sure your camera is fully charged and your cable is securely connected before uploading.</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt>Can I create my own colour recipes from scratch?</dt>
+                        <dd>Not yet. omachrome currently imports recipes from existing OM-3 JPEGs. The best place to find recipes is <a href="https://om-recipes.com" target="_blank" rel="noopener noreferrer">om-recipes.com</a>, where photographers share their colour recipes with sample JPEGs you can import directly into the app.</dd>
+                    </div>
+                </dl>
             </div>
         </section>
 
