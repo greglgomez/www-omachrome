@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     handleExternalLinks();
     initNewsletterForm();
+    initAndroidBetaButton();
 });
 
 /**
@@ -46,6 +47,8 @@ function initNewsletterForm() {
     const successEl = document.getElementById('newsletter-success')
     const errorEl = document.getElementById('newsletter-error')
     const validationEl = document.getElementById('newsletter-validation')
+    const androidCheckInput = document.getElementById('android-beta-check-input')
+    const androidCheckBox = document.getElementById('android-checkbox-box')
 
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -53,10 +56,21 @@ function initNewsletterForm() {
         validationEl.hidden = true
     })
 
+    if (androidCheckInput && androidCheckBox) {
+        androidCheckInput.addEventListener('change', function() {
+            if (this.checked) {
+                androidCheckBox.classList.add('is-checked')
+            } else {
+                androidCheckBox.classList.remove('is-checked')
+            }
+        })
+    }
+
     form.addEventListener('submit', async function(e) {
         e.preventDefault()
 
         const email = emailInput.value.trim()
+        const androidBeta = androidCheckInput ? androidCheckInput.checked : false
 
         if (!email) {
             validationEl.textContent = 'Please enter your email address.'
@@ -76,15 +90,22 @@ function initNewsletterForm() {
         successEl.hidden = true
         errorEl.hidden = true
 
+        const payload = { email, source: 'website-newsletter' }
+        if (androidBeta) payload.campaign = 'android-beta'
+
         try {
             const res = await fetch(NEWSLETTER_WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, source: 'website-newsletter' }),
+                body: JSON.stringify(payload),
             })
 
             if (res.ok || res.status === 409) {
                 form.hidden = true
+                const successText = document.getElementById('newsletter-success-text')
+                if (successText && androidBeta) {
+                    successText.textContent = "You're on the list for Android beta. We'll be in touch."
+                }
                 successEl.hidden = false
             } else {
                 throw new Error(`status ${res.status}`)
@@ -94,6 +115,31 @@ function initNewsletterForm() {
             submitBtn.disabled = false
             submitBtn.textContent = 'Sign up'
         }
+    })
+}
+
+function initAndroidBetaButton() {
+    const btn = document.getElementById('android-beta-btn')
+    if (!btn) return
+
+    btn.addEventListener('click', function() {
+        const newsletter = document.getElementById('newsletter')
+        if (!newsletter) return
+
+        newsletter.scrollIntoView({ behavior: 'smooth' })
+
+        setTimeout(function() {
+            const checkInput = document.getElementById('android-beta-check-input')
+            const checkBox = document.getElementById('android-checkbox-box')
+            if (!checkInput || !checkBox || checkInput.checked) return
+
+            checkInput.checked = true
+            checkBox.classList.add('is-checked')
+            checkBox.classList.add('is-bouncing')
+            checkBox.addEventListener('animationend', function() {
+                checkBox.classList.remove('is-bouncing')
+            }, { once: true })
+        }, 750)
     })
 }
 

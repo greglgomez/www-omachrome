@@ -196,6 +196,15 @@ a { text-decoration: none; transition: var(--t); }
 }
 
 /* Badge */
+.hero-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    animation: fade-up 0.6s var(--ease) 0.1s both;
+}
+
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -204,13 +213,23 @@ a { text-decoration: none; transition: var(--t); }
     border: 1px solid rgba(97, 85, 245, 0.22);
     border-radius: 100px;
     padding: 5px 13px;
-    margin-bottom: 28px;
     font-size: 0.72rem;
     font-weight: 700;
     color: var(--accent-2);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    animation: fade-up 0.6s var(--ease) 0.1s both;
+}
+
+.hero-badge--upcoming {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-3);
+}
+
+.badge-dot--static {
+    background: var(--text-3);
+    animation: none;
+    box-shadow: none;
 }
 
 .badge-dot {
@@ -253,8 +272,12 @@ a { text-decoration: none; transition: var(--t); }
     animation: fade-up 0.6s var(--ease) 0.3s both;
 }
 
-/* App Store button */
+/* CTA buttons row */
 .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;
     animation: fade-up 0.6s var(--ease) 0.4s both;
 }
 
@@ -269,6 +292,7 @@ a { text-decoration: none; transition: var(--t); }
     font-weight: 600;
     transition: var(--t);
     cursor: pointer;
+    flex-shrink: 0;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.08);
 }
 
@@ -280,6 +304,35 @@ a { text-decoration: none; transition: var(--t); }
 }
 
 .apple-icon { flex-shrink: 0; }
+
+/* Android beta button */
+.cta-button-android {
+    display: inline-flex;
+    align-items: center;
+    align-self: stretch;
+    gap: 10px;
+    padding: 0 20px;
+    background: transparent;
+    color: var(--accent-2);
+    border: 1.5px solid var(--border-hi);
+    border-radius: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--t);
+}
+
+.cta-button-android:hover {
+    background: rgba(97, 85, 245, 0.12);
+    border-color: var(--accent);
+    color: var(--text-1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(97, 85, 245, 0.25);
+}
+
+.android-icon { flex-shrink: 0; }
 
 .cta-text {
     display: flex;
@@ -293,6 +346,7 @@ a { text-decoration: none; transition: var(--t); }
     font-weight: 400;
     opacity: 0.65;
     letter-spacing: 0.03em;
+    white-space: nowrap;
 }
 
 .cta-text strong {
@@ -725,6 +779,90 @@ a { text-decoration: none; transition: var(--t); }
     color: var(--text-3);
 }
 
+/* Android beta checkbox */
+.android-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    user-select: none;
+    text-align: left;
+}
+
+.android-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.android-checkbox-box {
+    position: relative;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.2s var(--ease);
+}
+
+.android-checkbox-mark {
+    width: 12px;
+    height: 10px;
+    display: block;
+    overflow: visible;
+}
+
+.android-checkbox-mark path {
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    transition: stroke-dashoffset 0.3s var(--ease) 0.18s;
+}
+
+.android-checkbox-input:checked + .android-checkbox-box,
+.android-checkbox-box.is-checked {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(97, 85, 245, 0.22);
+}
+
+.android-checkbox-input:checked + .android-checkbox-box .android-checkbox-mark path,
+.android-checkbox-box.is-checked .android-checkbox-mark path {
+    stroke-dashoffset: 0;
+}
+
+@keyframes checkbox-bounce {
+    0%   { transform: scale(1); }
+    35%  { transform: scale(1.25); }
+    65%  { transform: scale(0.92); }
+    100% { transform: scale(1); }
+}
+
+.android-checkbox-box.is-bouncing {
+    animation: checkbox-bounce 0.38s var(--ease);
+}
+
+.android-checkbox-label:hover .android-checkbox-box {
+    border-color: rgba(97, 85, 245, 0.5);
+}
+
+.android-checkbox-text {
+    font-size: 0.88rem;
+    color: var(--text-2);
+    transition: color 0.2s var(--ease);
+    line-height: 1.4;
+}
+
+.android-checkbox-label:hover .android-checkbox-text {
+    color: var(--text-1);
+}
+
 .newsletter-feedback {
     display: flex;
     align-items: center;
@@ -989,7 +1127,9 @@ ul li::before {
     .hero-content { max-width: 100%; }
     .hero-subtitle { max-width: 100%; }
 
-    .hero-cta { justify-content: center; display: flex; }
+    .hero-cta { flex-direction: column; align-items: stretch; }
+    .cta-button { justify-content: center; flex-shrink: 1; }
+    .cta-button-android { align-self: auto; padding: 14px 20px; justify-content: center; }
 
     .phones-showcase { width: 280px; height: 450px; }
     .phone-back  { width: 185px; height: 370px; }
