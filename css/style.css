@@ -858,6 +858,27 @@ a { text-decoration: none; transition: var(--t); }
     color: var(--text-1);
 }
 
+.android-beta-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 20px;
+    padding: 9px 12px;
+    background: rgba(97, 85, 245, 0.1);
+    border: 1px solid rgba(97, 85, 245, 0.25);
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-2);
+    line-height: 1.45;
+    text-align: left;
+}
+
+.android-beta-hint-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
 .newsletter-feedback {
     display: flex;
     align-items: center;

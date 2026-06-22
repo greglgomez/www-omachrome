@@ -49,6 +49,7 @@ function initNewsletterForm() {
     const validationEl = document.getElementById('newsletter-validation')
     const androidCheckInput = document.getElementById('android-beta-check-input')
     const androidCheckBox = document.getElementById('android-checkbox-box')
+    const androidHint = document.getElementById('android-beta-hint')
 
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -60,8 +61,10 @@ function initNewsletterForm() {
         androidCheckInput.addEventListener('change', function() {
             if (this.checked) {
                 androidCheckBox.classList.add('is-checked')
+                if (androidHint) androidHint.hidden = false
             } else {
                 androidCheckBox.classList.remove('is-checked')
+                if (androidHint) androidHint.hidden = true
             }
         })
     }
@@ -136,6 +139,8 @@ function initAndroidBetaButton() {
             checkInput.checked = true
             checkBox.classList.add('is-checked')
             checkBox.classList.add('is-bouncing')
+            const hint = document.getElementById('android-beta-hint')
+            if (hint) hint.hidden = false
             checkBox.addEventListener('animationend', function() {
                 checkBox.classList.remove('is-bouncing')
             }, { once: true })
