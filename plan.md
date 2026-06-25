@@ -136,6 +136,30 @@ www-omachrome/
 
 ---
 
+## om-recipes Partnership Section
+
+Add a new section to `index.html` announcing the om-recipes.com collaboration, placed
+between Features and Secondary CTAs.
+
+- Headline: something like "Now integrated with om-recipes.com"
+- Copy: explain that recipes on om-recipes.com can now be opened directly into omachrome
+  with one tap — params, creator credit, and a link back to the original recipe, no
+  manual JPEG import needed.
+- Link out to om-recipes.com (match existing external-link pattern: `target="_blank"
+  rel="noopener noreferrer"`, external link indicator icon).
+- Do not claim "tap to open" copy live until the deep-link feature has actually shipped
+  on at least one platform — until then, keep messaging to "partnership announced" /
+  "coming soon" framing.
+- Add a changelog entry (via Featurebase, per existing changelog link pattern) once the
+  feature ships.
+
+**Content Placeholder**
+- Headline: "Recipes from om-recipes.com, one tap away"
+- Subcopy: "Find a recipe on om-recipes.com and tap 'Open in Omachrome' to bring it
+  straight into the app — with full credit to its creator."
+
+---
+
 ## Next Steps
 
 1. Create folder structure and base files
