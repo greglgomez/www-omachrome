@@ -195,56 +195,6 @@ a { text-decoration: none; transition: var(--t); }
     max-width: 560px;
 }
 
-/* Badge */
-.hero-badges {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-    animation: fade-up 0.6s var(--ease) 0.1s both;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(97, 85, 245, 0.1);
-    border: 1px solid rgba(97, 85, 245, 0.22);
-    border-radius: 100px;
-    padding: 5px 13px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--accent-2);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.hero-badge--upcoming {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-3);
-}
-
-.badge-dot--static {
-    background: var(--text-3);
-    animation: none;
-    box-shadow: none;
-}
-
-.badge-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent-2);
-    border-radius: 50%;
-    animation: dot-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes dot-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(157, 146, 251, 0.6); }
-    50%       { box-shadow: 0 0 0 5px rgba(157, 146, 251, 0); }
-}
-
 /* Headline */
 .hero-title {
     font-size: clamp(2.8rem, 6vw, 5rem);
@@ -281,77 +231,27 @@ a { text-decoration: none; transition: var(--t); }
     animation: fade-up 0.6s var(--ease) 0.4s both;
 }
 
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 22px;
-    background: var(--text-1);
-    color: var(--bg);
-    border-radius: 14px;
-    font-weight: 600;
-    transition: var(--t);
-    cursor: pointer;
-    flex-shrink: 0;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.08);
-}
-
-.cta-button:hover {
-    background: rgba(255, 255, 255, 0.88);
-    color: var(--bg);
-    transform: translateY(-3px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
-}
-
-.apple-icon { flex-shrink: 0; }
-
-/* Android beta button */
+/* App Store / Google Play badges — hard-locked to identical pixel dimensions so neither reads bigger */
+.cta-button,
 .cta-button-android {
     display: inline-flex;
     align-items: center;
-    align-self: stretch;
-    gap: 10px;
-    padding: 0 20px;
-    background: transparent;
-    color: var(--accent-2);
-    border: 1.5px solid var(--border-hi);
-    border-radius: 14px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    white-space: nowrap;
+    justify-content: center;
+    flex-shrink: 0;
     transition: var(--t);
 }
 
+.cta-button:hover,
 .cta-button-android:hover {
-    background: rgba(97, 85, 245, 0.12);
-    border-color: var(--accent);
-    color: var(--text-1);
     transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(97, 85, 245, 0.25);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
 }
 
-.android-icon { flex-shrink: 0; }
-
-.cta-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-    text-align: left;
-}
-
-.cta-text small {
-    font-size: 0.63rem;
-    font-weight: 400;
-    opacity: 0.65;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-}
-
-.cta-text strong {
-    font-size: 1rem;
-    font-weight: 700;
+.apple-app-store-badge-img,
+.google-play-badge-img {
+    width: 150px !important;
+    height: 54px !important;
+    display: block;
 }
 
 /* Phone mockups */
@@ -774,18 +674,52 @@ a { text-decoration: none; transition: var(--t); }
     color: var(--text-3);
 }
 
-/* Android beta checkbox */
-.android-checkbox-label {
+/* Beta opt-in chips */
+.beta-optins {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 11px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    user-select: none;
-    text-align: left;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
-.android-checkbox-input {
+.beta-optins-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.beta-chip-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.beta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-2);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.beta-chip:hover {
+    border-color: rgba(97, 85, 245, 0.5);
+    color: var(--text-1);
+}
+
+.beta-chip-input {
     position: absolute;
     opacity: 0;
     width: 0;
@@ -793,76 +727,49 @@ a { text-decoration: none; transition: var(--t); }
     pointer-events: none;
 }
 
-.android-checkbox-box {
+.beta-chip-dot {
     position: relative;
     flex-shrink: 0;
-    width: 22px;
-    height: 22px;
+    width: 17px;
+    height: 17px;
     border: 1.5px solid var(--border);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.04);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.2s var(--ease);
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
-.android-checkbox-mark {
-    width: 12px;
-    height: 10px;
+.beta-chip-check {
     display: block;
     overflow: visible;
 }
 
-.android-checkbox-mark path {
+.beta-chip-check path {
     stroke-dasharray: 16;
     stroke-dashoffset: 16;
-    transition: stroke-dashoffset 0.3s var(--ease) 0.18s;
+    transition: stroke-dashoffset 0.3s var(--ease) 0.05s;
 }
 
-.android-checkbox-input:checked + .android-checkbox-box,
-.android-checkbox-box.is-checked {
-    background: var(--accent);
+.beta-chip.is-checked {
+    background: rgba(97, 85, 245, 0.14);
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(97, 85, 245, 0.22);
-}
-
-.android-checkbox-input:checked + .android-checkbox-box .android-checkbox-mark path,
-.android-checkbox-box.is-checked .android-checkbox-mark path {
-    stroke-dashoffset: 0;
-}
-
-@keyframes checkbox-bounce {
-    0%   { transform: scale(1); }
-    35%  { transform: scale(1.25); }
-    65%  { transform: scale(0.92); }
-    100% { transform: scale(1); }
-}
-
-.android-checkbox-box.is-bouncing {
-    animation: checkbox-bounce 0.38s var(--ease);
-}
-
-.android-checkbox-label:hover .android-checkbox-box {
-    border-color: rgba(97, 85, 245, 0.5);
-}
-
-.android-checkbox-text {
-    font-size: 0.88rem;
-    color: var(--text-2);
-    transition: color 0.2s var(--ease);
-    line-height: 1.4;
-}
-
-.android-checkbox-label:hover .android-checkbox-text {
     color: var(--text-1);
 }
 
-.android-beta-hint {
+.beta-chip.is-checked .beta-chip-dot {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.beta-chip.is-checked .beta-chip-check path {
+    stroke-dashoffset: 0;
+}
+
+.beta-hint {
     display: flex;
     align-items: flex-start;
     gap: 7px;
-    margin-bottom: 20px;
     padding: 9px 12px;
     background: rgba(97, 85, 245, 0.1);
     border: 1px solid rgba(97, 85, 245, 0.25);
@@ -872,9 +779,10 @@ a { text-decoration: none; transition: var(--t); }
     color: var(--accent-2);
     line-height: 1.45;
     text-align: left;
+    max-width: 400px;
 }
 
-.android-beta-hint-icon {
+.beta-hint-icon {
     flex-shrink: 0;
     margin-top: 2px;
 }
@@ -1143,9 +1051,7 @@ ul li::before {
     .hero-content { max-width: 100%; }
     .hero-subtitle { max-width: 100%; }
 
-    .hero-cta { flex-direction: column; align-items: stretch; }
-    .cta-button { justify-content: center; flex-shrink: 1; }
-    .cta-button-android { align-self: auto; padding: 14px 20px; justify-content: center; }
+    .hero-cta { flex-direction: column; align-items: center; }
 
     .phones-showcase { width: 280px; height: 450px; }
     .phone-back  { width: 185px; height: 370px; }

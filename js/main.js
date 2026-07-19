@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     handleExternalLinks();
     initNewsletterForm();
-    initAndroidBetaButton();
 });
 
 /**
@@ -48,8 +47,16 @@ function initNewsletterForm() {
     const errorEl = document.getElementById('newsletter-error')
     const validationEl = document.getElementById('newsletter-validation')
     const androidCheckInput = document.getElementById('android-beta-check-input')
-    const androidCheckBox = document.getElementById('android-checkbox-box')
-    const androidHint = document.getElementById('android-beta-hint')
+    const androidChip = document.getElementById('android-beta-chip')
+    const iosCheckInput = document.getElementById('ios-beta-check-input')
+    const iosChip = document.getElementById('ios-beta-chip')
+    const betaHint = document.getElementById('beta-hint')
+    const betaHintText = document.getElementById('beta-hint-text')
+
+    const BETA_HINTS = {
+        android: 'Please sign up with your Google account email to access the omachrome Android beta.',
+        ios: 'Please sign up with your Apple ID email to access the omachrome iOS TestFlight beta.',
+    }
 
     const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -57,15 +64,34 @@ function initNewsletterForm() {
         validationEl.hidden = true
     })
 
-    if (androidCheckInput && androidCheckBox) {
-        androidCheckInput.addEventListener('change', function() {
-            if (this.checked) {
-                androidCheckBox.classList.add('is-checked')
-                if (androidHint) androidHint.hidden = false
+    function selectBetaPlatform(platform) {
+        const isAndroid = platform === 'android'
+        const isIos = platform === 'ios'
+
+        androidCheckInput.checked = isAndroid
+        androidChip.classList.toggle('is-checked', isAndroid)
+        iosCheckInput.checked = isIos
+        iosChip.classList.toggle('is-checked', isIos)
+
+        if (betaHint && betaHintText) {
+            if (platform) {
+                betaHintText.textContent = BETA_HINTS[platform]
+                betaHint.hidden = false
             } else {
-                androidCheckBox.classList.remove('is-checked')
-                if (androidHint) androidHint.hidden = true
+                betaHint.hidden = true
             }
+        }
+    }
+
+    if (androidCheckInput && androidChip) {
+        androidCheckInput.addEventListener('change', function() {
+            selectBetaPlatform(this.checked ? 'android' : null)
+        })
+    }
+
+    if (iosCheckInput && iosChip) {
+        iosCheckInput.addEventListener('change', function() {
+            selectBetaPlatform(this.checked ? 'ios' : null)
         })
     }
 
@@ -74,6 +100,7 @@ function initNewsletterForm() {
 
         const email = emailInput.value.trim()
         const androidBeta = androidCheckInput ? androidCheckInput.checked : false
+        const iosBeta = iosCheckInput ? iosCheckInput.checked : false
 
         if (!email) {
             validationEl.textContent = 'Please enter your email address.'
@@ -95,6 +122,7 @@ function initNewsletterForm() {
 
         const payload = { email, source: 'website-newsletter' }
         if (androidBeta) payload.campaign = 'android-beta'
+        else if (iosBeta) payload.campaign = 'ios-beta'
 
         try {
             const res = await fetch(NEWSLETTER_WORKER_URL, {
@@ -106,8 +134,9 @@ function initNewsletterForm() {
             if (res.ok || res.status === 409) {
                 form.hidden = true
                 const successText = document.getElementById('newsletter-success-text')
-                if (successText && androidBeta) {
-                    successText.textContent = "You're on the list for Android beta. We'll be in touch."
+                if (successText && payload.campaign) {
+                    const betaLabel = androidBeta ? 'Android beta' : 'iOS beta'
+                    successText.textContent = `You're on the list for ${betaLabel}. We'll be in touch.`
                 }
                 successEl.hidden = false
             } else {
@@ -118,33 +147,6 @@ function initNewsletterForm() {
             submitBtn.disabled = false
             submitBtn.textContent = 'Sign up'
         }
-    })
-}
-
-function initAndroidBetaButton() {
-    const btn = document.getElementById('android-beta-btn')
-    if (!btn) return
-
-    btn.addEventListener('click', function() {
-        const newsletter = document.getElementById('newsletter')
-        if (!newsletter) return
-
-        newsletter.scrollIntoView({ behavior: 'smooth' })
-
-        setTimeout(function() {
-            const checkInput = document.getElementById('android-beta-check-input')
-            const checkBox = document.getElementById('android-checkbox-box')
-            if (!checkInput || !checkBox || checkInput.checked) return
-
-            checkInput.checked = true
-            checkBox.classList.add('is-checked')
-            checkBox.classList.add('is-bouncing')
-            const hint = document.getElementById('android-beta-hint')
-            if (hint) hint.hidden = false
-            checkBox.addEventListener('animationend', function() {
-                checkBox.classList.remove('is-bouncing')
-            }, { once: true })
-        }, 750)
     })
 }
 
