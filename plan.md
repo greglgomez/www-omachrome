@@ -136,27 +136,21 @@ www-omachrome/
 
 ---
 
-## om-recipes Partnership Section
+## om-recipes Partnership Section — cancelled
 
-Add a new section to `index.html` announcing the om-recipes.com collaboration, placed
-between Features and Secondary CTAs.
+Cancelled 2026-11-03. The planned om-recipes.com partnership was never announced and is no
+longer planned, so do not add the "Now integrated with om-recipes.com" homepage section. The
+existing FAQ and how-it-works copy that sends people to om-recipes.com for sample JPEGs is
+unchanged for now and is rewritten when the gallery ships (see below).
 
-- Headline: something like "Now integrated with om-recipes.com"
-- Copy: explain that recipes on om-recipes.com can now be opened directly into omachrome
-  with one tap — params, creator credit, and a link back to the original recipe, no
-  manual JPEG import needed.
-- Link out to om-recipes.com (match existing external-link pattern: `target="_blank"
-  rel="noopener noreferrer"`, external link indicator icon).
-- Do not claim "tap to open" copy live until the deep-link feature has actually shipped
-  on at least one platform — until then, keep messaging to "partnership announced" /
-  "coming soon" framing.
-- Add a changelog entry (via Featurebase, per existing changelog link pattern) once the
-  feature ships.
+Source: `planning/recipe-gallery/master-plan.md` §7.
 
-**Content Placeholder**
-- Headline: "Recipes from om-recipes.com, one tap away"
-- Subcopy: "Find a recipe on om-recipes.com and tap 'Open in Omachrome' to bring it
-  straight into the app — with full credit to its creator."
+## Recipe Gallery pages
+- Link pages `r.omachrome.com/<id>` are served by the API Worker (backend B4), not by this site; no hosting change here
+- Static pages: Community Guidelines (what can be published, how to report), contact / takedown address, Terms update, Privacy Policy update (gallery, pseudonymous publisher ID, no images)
+- Marketing copy and a changelog entry once the gallery ships; do not claim it before then
+- Cancel the planned "om-recipes Partnership Section" (never announced, no longer planned)
+- When the gallery ships, rewrite the FAQ and how-it-works copy that sends people to om-recipes.com for sample JPEGs
 
 ---
 
