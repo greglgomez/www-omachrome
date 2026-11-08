@@ -152,6 +152,16 @@ Source: `planning/recipe-gallery/master-plan.md` §7.
 - Cancel the planned "om-recipes Partnership Section" (never announced, no longer planned)
 - When the gallery ships, rewrite the FAQ and how-it-works copy that sends people to om-recipes.com for sample JPEGs
 
+### Backend status and what this site still owes (2026-11-08)
+Backend `omachrome-api` B1–B4 are built (staging and production live; link pages built). Nothing on this site needs to change for the backend to work, but the apps and the link pages point people here, so these are the outstanding items. Facts below are what the backend actually does (see `omachrome-api/docs/client-integration.md` and `docs/decisions.md`), so the copy can be accurate.
+- [ ] **Contact / takedown address:** `hello@omachrome.com` (already shown in the footer of every link page). Add a visible contact section or page, and make sure that mailbox exists and is monitored. Link pages and the app ask people to use it to report a problem or request a recipe's removal
+- [ ] **Community Guidelines page** (the iOS app links to it from the report and block screens; agree the URL with the iOS agent before building, e.g. `/guidelines`). Content that matches the rules the server enforces: recipes are numbers plus a name and description, no images; names 1–40 and descriptions up to 280 characters; no links or web addresses, no emoji, a word filter applies; publishing is for omachrome Lab subscribers; a publisher's first three recipes are reviewed before they appear; three reports from different people hide a recipe pending review; the owner can remove anything and ban a publisher; takedown requests go to the contact address; people can delete their own recipes at any time; recipes already published stay up if a subscription lapses
+- [ ] **Privacy Policy update** (gallery section), accurate to what is stored: a random pseudonymous publisher id and the display name the person chooses; a one-way hash of the App Store subscription id (the id itself isn't kept); no email address or other personal data; recipe contents (numbers, name, description, tags). Reports are stored with a one-way salted hash, not an IP address; rate-limit counters use a one-way hash of the IP and are deleted after about two days. Cloudflare, the host, processes requests under its own policy. Removed recipes are deleted after 30 days; moderation actions are logged. Browsing the gallery needs no account
+- [ ] **Terms update:** community rules, moderation rights, Lab is billed and cancelled through the App Store (and Google Play for Android)
+- [ ] **Lab and gallery marketing + changelog entry:** only when the gallery ships in a released app; do not announce before then
+- [ ] **Rewrite FAQ / how-it-works copy** that sends people to om-recipes.com for sample JPEGs, when the gallery ships
+- [ ] Decide and tell the iOS agent: the final URLs of the Guidelines, Privacy and Terms pages (the app's report/block screens and the Lab paywall link to them)
+
 ---
 
 ## Next Steps
