@@ -26,6 +26,9 @@ No build step required! Simply:
 www-omachrome/
 ├── index.html              # Home page
 ├── privacy.html            # Privacy policy
+├── privacy-policy.html     # Redirect to privacy.html (the app links to this URL)
+├── terms.html              # Terms of use
+├── guidelines.html         # Community guidelines (recipe gallery)
 ├── css/
 │   └── style.css          # All styles (minimalist CSS)
 ├── js/

@@ -936,7 +936,8 @@ a { text-decoration: none; transition: var(--t); }
 
 .footer-links {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 8px 20px;
 }
 
 .footer-link {
@@ -1031,6 +1032,141 @@ ul li::before {
     color: var(--text-3);
 }
 
+
+/* ─── DOCUMENT PAGES (guidelines, terms) ──────────────── */
+
+.doc-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 0 56px;
+}
+
+.doc-hero-inner {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.doc-hero .feature-label { margin-bottom: 22px; }
+
+/* Let the glow fade out instead of ending in a hard edge at the bottom of the hero */
+.doc-hero .hero-bg {
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+.last-updated.doc-updated { margin: 22px 0 0; }
+
+.doc-title {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    color: var(--text-1);
+    margin-bottom: 20px;
+}
+
+.doc-lead {
+    font-size: 1.15rem;
+    color: var(--text-2);
+    line-height: 1.75;
+}
+
+.principles {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.principle {
+    position: relative;
+    padding: 22px 20px 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.principle::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(97, 85, 245, 0.07), transparent 60%);
+    pointer-events: none;
+}
+
+.principle-num {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 12px;
+}
+
+.principle h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin-bottom: 8px;
+}
+
+.principle p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-2);
+    margin: 0;
+}
+
+.doc-body { padding-top: 56px; }
+
+.callout {
+    margin: 20px 0;
+    padding: 16px 18px;
+    border: 1px solid rgba(97, 85, 245, 0.25);
+    border-radius: 14px;
+    background: rgba(97, 85, 245, 0.08);
+}
+
+.privacy-container .callout p:last-child { margin-bottom: 0; }
+
+.privacy-container h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text-1);
+    margin: 28px 0 10px;
+}
+
+.privacy-container strong { color: var(--text-1); font-weight: 600; }
+
+.doc-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    padding: 13px 22px;
+    background: var(--accent);
+    color: #fff !important;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(97, 85, 245, 0.4);
+    transition: var(--t);
+}
+
+.doc-contact:hover {
+    background: #7269f7;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(97, 85, 245, 0.5);
+}
+
 /* ─── ANIMATIONS ──────────────────────────────────────── */
 
 @keyframes fade-up {
@@ -1070,6 +1206,10 @@ ul li::before {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
+    .principles { grid-template-columns: 1fr; }
+    .doc-hero { padding: 64px 0 36px; }
+    .footer-links { justify-content: center; }
 
     .footer-container {
         flex-direction: column;
